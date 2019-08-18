@@ -1,35 +1,44 @@
 package com.cts.user.pojo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user")
 public class User {
  
 	public User() {
 		super();
 		
 	}
+	
 	private String firstName;
 	private String lastName;
 	private String userName;
-	private String email;
+	
+	@Id
+	private String emailId;
 	private String password;
 	private String profilePicture;
 	
-	public User(String firstName, String lastName, String userName, String email, String password,
+	public User(String firstName, String lastName, String userName, String emailId, String password,
 			String profilePicture) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
-		this.email = email;
+		this.emailId = emailId;
 		this.password = password;
 		this.profilePicture = profilePicture;
 	}
 	
-	public String getEmail() {
-		return email;
+	public String getEmailId() {
+		return emailId;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 
 	public String getFirstName() {
@@ -62,5 +71,13 @@ public class User {
 	public void setProfilePicture(String profilePicture) {
 		this.profilePicture = profilePicture;
 	}
+
+	@Override
+	public String toString() {
+		return "User [firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName + ", emailId="
+				+ emailId + ", password=" + password + ", profilePicture=" + profilePicture + "]";
+	}
+	
+	
 	
 }
